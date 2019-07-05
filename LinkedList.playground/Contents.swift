@@ -165,17 +165,57 @@ doublyLinkedList.node(atIndex: 2)?.next?.value
 // LRU基础实现
 
 // 单链表实现判断一个字符串是否是回文串？
-
 // 判断是否是回文palindrom
 func isPalindrome(_ value: String) -> Bool {
+    // 如果字符串为空，我们也认定它是回文字符串
+    if value.count == 0 {
+        return true
+    }
     let stringLinkedList = LinkedList<String>()
     for charc in value {
         stringLinkedList.append(String(charc))
     }
     
-    return false
+    
+    var prev: LinkedListNode<String>?
+    var slow = stringLinkedList.first()
+    var fast = stringLinkedList.first()
+    
+    // 快单链，一次走两步
+    // 慢单链，一次走一步
+    while fast != nil && fast?.next != nil {
+        fast = fast?.next?.next
+        // 慢单链，reverse
+        let slowNext = slow?.next
+        // 第一个数据，变成最后一个数据
+        slow?.next = prev
+        
+        // 更新当前prev节点
+        prev = slow
+        slow = slowNext
+    }
+    
+    if fast != nil {
+        slow = slow?.next
+    }
+    
+    while slow != nil {
+        if let slowValue = slow?.value,
+            let prevValue = prev?.value {
+            if slowValue != prevValue {
+                return false
+            }
+        }
+        
+        slow = slow?.next
+        prev = prev?.next
+    }
+    
+    return true
 }
 
+isPalindrome("")
+isPalindrome("012343210")
 isPalindrome("abccba")
 isPalindrome("abcba")
 isPalindrome("abcdba")
