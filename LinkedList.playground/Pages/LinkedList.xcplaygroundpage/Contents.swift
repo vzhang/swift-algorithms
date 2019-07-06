@@ -161,11 +161,14 @@ doublyLinkedList.node(atIndex: 2)?.prev?.value
 doublyLinkedList.node(atIndex: 2)?.next?.value
 
 // 约瑟夫环问题
+// N个人围成一圈，从第一个人开始报数，报到m的人出圈，剩下的人继续从1开始报数，报到m的人出圈；如此往复，直到所有人出圈。
 
 // LRU基础实现
 
 // 单链表实现判断一个字符串是否是回文串？
 // 判断是否是回文palindrom
+// 时间复杂度是O(n)
+// 空间复杂度是O(1)
 func isPalindrome(_ value: String) -> Bool {
     // 如果字符串为空，我们也认定它是回文字符串
     if value.count == 0 {
@@ -175,7 +178,6 @@ func isPalindrome(_ value: String) -> Bool {
     for charc in value {
         stringLinkedList.append(String(charc))
     }
-    
     
     var prev: LinkedListNode<String>?
     var slow = stringLinkedList.first()
@@ -187,7 +189,7 @@ func isPalindrome(_ value: String) -> Bool {
         fast = fast?.next?.next
         // 慢单链，reverse
         let slowNext = slow?.next
-        // 第一个数据，变成最后一个数据
+        // 第一个数据，变成最后一个数据,做reverse操作
         slow?.next = prev
         
         // 更新当前prev节点
