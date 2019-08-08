@@ -21,6 +21,20 @@ class LinkedList<Element: Comparable>: CustomStringConvertible {
     // 头节点
     private var head: Node?
     
+    public var size: Int {
+        guard var node = head else {
+            return 0
+        }
+        
+        var count = 1
+        while let next = node.next {
+            count += 1
+            node = next
+        }
+        
+        return count
+    }
+    
     /// 判断链表是否为空
     func isEmpty() -> Bool {
         if (head == nil) {
@@ -212,5 +226,5 @@ linkedList.delete(value: 5)
 print(linkedList.node(at: 0)?.data ?? "不存在")
 print(linkedList.node(at: 4)?.data ?? "不存在")
 print(linkedList.node(at: 10)?.data ?? "不存在")
-
+print(linkedList.size)
 print(linkedList)
