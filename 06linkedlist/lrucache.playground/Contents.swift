@@ -15,7 +15,7 @@ class LinkedListNode<Element> {
     }
 }
 
-class LinkedList<Element: Comparable>: CustomStringConvertible {
+class SinglytLinkedList<Element: Comparable>: CustomStringConvertible {
     public typealias Node = LinkedListNode<Element>
     // 头节点
     private var head: Node?
