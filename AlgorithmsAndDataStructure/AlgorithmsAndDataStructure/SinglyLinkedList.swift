@@ -315,7 +315,7 @@ class SinglyLinkedList<Element: Comparable>: CustomStringConvertible {
         return false
     }
     
-    /// 删除首个配置值节点
+    /// 删除首个值节点
     func delete(value: Element) -> Bool {
         var currentNode:Node? = head
         var previousNode:Node?
