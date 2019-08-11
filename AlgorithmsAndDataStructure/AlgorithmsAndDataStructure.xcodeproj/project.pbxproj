@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB5DDCA422FED6C9008A52D1 /* Palindrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5DDCA322FED6C9008A52D1 /* Palindrome.swift */; };
 		CB6A42F022FD4BDB00D4F62F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A42EF22FD4BDB00D4F62F /* main.swift */; };
 		CB6A42F722FD4C0C00D4F62F /* SinglyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A42F622FD4C0C00D4F62F /* SinglyLinkedList.swift */; };
 		CB6A42F922FD4C6800D4F62F /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A42F822FD4C6800D4F62F /* LRUCache.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB5DDCA322FED6C9008A52D1 /* Palindrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palindrome.swift; sourceTree = "<group>"; };
 		CB6A42EC22FD4BDB00D4F62F /* AlgorithmsAndDataStructure */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlgorithmsAndDataStructure; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB6A42EF22FD4BDB00D4F62F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		CB6A42F622FD4C0C00D4F62F /* SinglyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedList.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				CB6A42EF22FD4BDB00D4F62F /* main.swift */,
 				CB6A42F622FD4C0C00D4F62F /* SinglyLinkedList.swift */,
 				CB6A42F822FD4C6800D4F62F /* LRUCache.swift */,
+				CB5DDCA322FED6C9008A52D1 /* Palindrome.swift */,
 			);
 			path = AlgorithmsAndDataStructure;
 			sourceTree = "<group>";
@@ -95,7 +98,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Ming Zhang";
 				TargetAttributes = {
 					CB6A42EB22FD4BDB00D4F62F = {
@@ -109,6 +112,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CB6A42E322FD4BDB00D4F62F;
 			productRefGroup = CB6A42ED22FD4BDB00D4F62F /* Products */;
@@ -127,6 +131,7 @@
 			files = (
 				CB6A42F922FD4C6800D4F62F /* LRUCache.swift in Sources */,
 				CB6A42F722FD4C0C00D4F62F /* SinglyLinkedList.swift in Sources */,
+				CB5DDCA422FED6C9008A52D1 /* Palindrome.swift in Sources */,
 				CB6A42F022FD4BDB00D4F62F /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +257,7 @@
 		CB6A42F422FD4BDB00D4F62F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -261,6 +267,7 @@
 		CB6A42F522FD4BDB00D4F62F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
