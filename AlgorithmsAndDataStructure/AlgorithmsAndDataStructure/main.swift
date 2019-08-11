@@ -61,7 +61,7 @@ import Foundation
 //print(circleLinkedList.checkCircle2())
 
 
-///// 两个有序链表合并
+/// 两个有序链表合并
 //let mergeLinkedList1 = SinglyLinkedList<Int>()
 //mergeLinkedList1.append(value: 1)
 //mergeLinkedList1.append(value: 3)
@@ -78,7 +78,7 @@ import Foundation
 //let mergeLinkedList = mergeLinkedList1.merge(mergeLinkedList2)
 //print(mergeLinkedList)
 
-///// 测试删除链表倒数n个节点
+/// 测试删除链表倒数n个节点
 //let deleteLinkedList = SinglyLinkedList<Int>()
 //deleteLinkedList.append(value: 1)
 //deleteLinkedList.append(value: 2)
@@ -92,17 +92,17 @@ import Foundation
 
 
 /// 测试查找链表中间节点
-let middleLinkedList = SinglyLinkedList<Int>()
-middleLinkedList.append(value: 1)
-middleLinkedList.append(value: 2)
-middleLinkedList.append(value: 3)
-middleLinkedList.append(value: 4)
-middleLinkedList.append(value: 5)
-middleLinkedList.append(value: 6)
-
-var middleNode = middleLinkedList.middleNode()
-print(middleNode!.data)
-middleLinkedList.append(value: 7)
-middleNode = middleLinkedList.middleNode()
-print(middleNode!.data)
+//let middleLinkedList = SinglyLinkedList<Int>()
+//middleLinkedList.append(value: 1)
+//middleLinkedList.append(value: 2)
+//middleLinkedList.append(value: 3)
+//middleLinkedList.append(value: 4)
+//middleLinkedList.append(value: 5)
+//middleLinkedList.append(value: 6)
+//
+//var middleNode = middleLinkedList.middleNode()
+//print(middleNode!.data)
+//middleLinkedList.append(value: 7)
+//middleNode = middleLinkedList.middleNode()
+//print(middleNode!.data)
 
