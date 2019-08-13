@@ -134,17 +134,17 @@ import Foundation
 
 
 /// 测试队列
-let queue = Queue<String>(defaultElement: "", capacity: 5)
-_ = queue.enqueue(value: "1")
-_ = queue.enqueue(value: "2")
-_ = queue.enqueue(value: "3")
-_ = queue.enqueue(value: "4")
-_ = queue.enqueue(value: "5")
-print(queue)
-_ = queue.dequeue()
-_ = queue.dequeue()
-print(queue)
-_ = queue.enqueue(value: "6")
-print(queue)
+//let queue = Queue<String>(defaultElement: "", capacity: 5)
+//_ = queue.enqueue(value: "1")
+//_ = queue.enqueue(value: "2")
+//_ = queue.enqueue(value: "3")
+//_ = queue.enqueue(value: "4")
+//_ = queue.enqueue(value: "5")
+//print(queue)
+//_ = queue.dequeue()
+//_ = queue.dequeue()
+//print(queue)
+//_ = queue.enqueue(value: "6")
+//print(queue)
 
 

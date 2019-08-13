@@ -85,7 +85,7 @@ class Queue<Element>: CustomStringConvertible {
 /// 例：队列长度为6,数据 1,2,3,4,5,6，
 /// 出队三次_,_,_,4,5,6, head = 3, tail = 7
 /// 考虑几个满值场景， head=3, tail = 4， 1,2,3,_,5,6,
-/// 满数据场景，是(tail+1)%capacity == head
+/// 满数据场景，是(tail+1)%capacity == head，为什么取模，是因为tail+1最大可以到capacity的值，这样取模的话可以转换为0
 class CycleQueue<Element>: CustomStringConvertible {
     var items: [Element]
     var head: Int = 0
