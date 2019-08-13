@@ -148,3 +148,11 @@ import Foundation
 //print(queue)
 
 
+/// 计算多少种台阶走法
+
+//print(Recursion.findSolution(10))
+//
+//print(Recursion.factorial(3))
+
+var arr = [1,2,3,3]
+print(Recursion.allPermutation(arr: &arr, startIndex: 0, endIndex: arr.count - 1))
