@@ -106,3 +106,29 @@ import Foundation
 //middleNode = middleLinkedList.middleNode()
 //print(middleNode!.data)
 
+
+/// 测试浏览器前进后退
+let browse = Browse()
+_ = browse.newPage(url: "url1")
+_ = browse.newPage(url: "url2")
+_ = browse.newPage(url: "url3")
+_ = browse.newPage(url: "url4")
+_ = browse.newPage(url: "url5")
+
+if let currentPage = browse.currentPage {
+    print(currentPage)
+}
+
+// 后退两步
+_ = browse.back()
+_ = browse.back()
+if let currentPage = browse.currentPage {
+    print(currentPage)
+}
+
+// 前进一步
+_ = browse.next()
+if let currentPage = browse.currentPage {
+    print(currentPage)
+}
+
