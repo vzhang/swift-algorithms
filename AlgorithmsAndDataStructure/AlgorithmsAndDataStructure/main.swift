@@ -108,27 +108,43 @@ import Foundation
 
 
 /// 测试浏览器前进后退
-let browse = Browse()
-_ = browse.newPage(url: "url1")
-_ = browse.newPage(url: "url2")
-_ = browse.newPage(url: "url3")
-_ = browse.newPage(url: "url4")
-_ = browse.newPage(url: "url5")
+//let browse = Browse()
+//_ = browse.newPage(url: "url1")
+//_ = browse.newPage(url: "url2")
+//_ = browse.newPage(url: "url3")
+//_ = browse.newPage(url: "url4")
+//_ = browse.newPage(url: "url5")
+//
+//if let currentPage = browse.currentPage {
+//    print(currentPage)
+//}
+//
+//// 后退两步
+//_ = browse.back()
+//_ = browse.back()
+//if let currentPage = browse.currentPage {
+//    print(currentPage)
+//}
+//
+//// 前进一步
+//_ = browse.next()
+//if let currentPage = browse.currentPage {
+//    print(currentPage)
+//}
 
-if let currentPage = browse.currentPage {
-    print(currentPage)
-}
 
-// 后退两步
-_ = browse.back()
-_ = browse.back()
-if let currentPage = browse.currentPage {
-    print(currentPage)
-}
+/// 测试队列
+let queue = Queue<String>(defaultElement: "", capacity: 5)
+_ = queue.enqueue(value: "1")
+_ = queue.enqueue(value: "2")
+_ = queue.enqueue(value: "3")
+_ = queue.enqueue(value: "4")
+_ = queue.enqueue(value: "5")
+print(queue)
+_ = queue.dequeue()
+_ = queue.dequeue()
+print(queue)
+_ = queue.enqueue(value: "6")
+print(queue)
 
-// 前进一步
-_ = browse.next()
-if let currentPage = browse.currentPage {
-    print(currentPage)
-}
 
