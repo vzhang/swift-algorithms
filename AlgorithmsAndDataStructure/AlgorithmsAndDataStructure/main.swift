@@ -106,3 +106,24 @@ import Foundation
 //middleNode = middleLinkedList.middleNode()
 //print(middleNode!.data)
 
+
+/// 排序算法测试
+
+var arr = [4, 5, 3, 2, 1, 10, 8, 6, 11, 7]
+let sort = SortImplementation<Int>()
+
+// 冒泡
+//sort.bubbleSort(arr: &arr)
+//print(arr)
+
+// 插入
+//sort.insertionSort(arr: &arr)
+//print(arr)
+
+// 选择
+//sort.selectionSort(arr: &arr)
+//print(arr)
+
+// 希尔
+sort.shellSort(arr: &arr)
+print(arr)
