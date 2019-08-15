@@ -125,6 +125,13 @@ let sort = SortImplementation<Int>()
 //print(arr)
 
 // 希尔
-sort.shellSort(arr: &arr)
+//sort.shellSort(arr: &arr)
+//print(arr)
+
+// 归并
+//sort.mergeSort(arr: &arr)
+//print(arr)
+
+sort.mergeSortInteration(arr: &arr)
 print(arr)
 
