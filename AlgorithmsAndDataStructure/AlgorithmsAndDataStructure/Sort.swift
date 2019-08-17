@@ -193,7 +193,6 @@ class SortImplementation<Element: Comparable>
         
     }
     
-    
     private func mergeArr(arr: inout Array<Element>, tempArr: inout Array<Element>, low: Int, mid: Int, high: Int) {
         
         var j = low
@@ -228,7 +227,6 @@ class SortImplementation<Element: Comparable>
         
         arr[low...high] = tempArr[low...high]
     }
-    
     
     /* 4.1 归并排序
      * 算法步骤：迭代法
@@ -267,6 +265,7 @@ class SortImplementation<Element: Comparable>
                     pos += 1
                 }
 
+                
 
                 if low < lowMax {
                     tempArr[pos..<highMax] = arr[low..<lowMax]
@@ -275,74 +274,105 @@ class SortImplementation<Element: Comparable>
                 if high < highMax {
                     tempArr[pos..<highMax] = arr[high..<highMax]
                 }
+                
             }
             arr[0..<count] = tempArr[0..<count]
 
             step <<= 1
         }
-        
-//        var step = 1
-//        // 步骤
-//        while step < count {
-//            // 每一次迭代，遍历所有数据进行排序
-//            for i in stride(from: 0, to: count, by: step * 2) {
-//                var pos = i
-//
-//                var low = i
-//
-//                let high = min(count - 1 , low + 2 * step - 1)
-//                let mid = (low + high) / 2
-//
-//                var start1 = low, end1 = mid
-//                var start2 = mid, end2 = high
-//
-//                while start1 <= end1 && start2 <= end2 {
-//                    if (arr[start1] < arr[start2]) {
-//                        tempArr[pos] = arr[start1]
-//                        start1 += 1
-//                    }
-//                    else {
-//                        tempArr[pos] = arr[start2]
-//                        start2 += 1
-//                    }
-//
-//                    pos += 1
-//                }
-//
-//                if start1 <= end1 {
-//                    tempArr[pos...high] = arr[start1...end1]
-//                }
-//
-//                if start2 <= end2 {
-//                    tempArr[pos...high] = arr[start2...end2]
-//                }
-//            }
-//
-//            arr[0..<count] = tempArr[0..<count]
-//
-//            step <<= 1
-//        }
-//
-        
-        
-        
-//        var step = 1
-//        while step < count{
-//            for i in stride(from: 0, to: count, by: step * 2) {
-//                let low = i
-//                let high = min(i + step * 2 - 1, count - 1)
-//                let mid = (low + high) / 2
-//
-//                mergeArr(arr: &arr, tempArr: &tempArr, low: low, mid: mid, high: high)
-//            }
-//
-//
-//            step <<= 1
-//        }
     }
     
     
     /* 5. 快速排序
-     * wiki:
+     * wiki: 快速排序使用分治法（Divide and conquer）策略來把一個序列（list）分為较小和较大的2个子序列，然后递归地排序两个子序列。
+     * 算法步骤：
+     * 1. 挑选基准值：從數列中挑出一個元素，稱為「基準」（pivot）
+     * 2. 分割：重新排序數列，所有比基準值小的元素擺放在基準前面，所有比基準值大的元素擺在基準後面（与基准值相等的數可以到任何一邊）。在這個分割結束之後，对基准值的排序就已经完成
+     * 3. 递归排序子序列：递归地将小於基准值元素的子序列和大於基准值元素的子序列排序。
      */
+    
+    func quickSort(arr: inout Array<Element>) {
+        let count = arr.count
+        if count <= 1 {
+            return
+        }
+        
+        //
+        p_quickSort(arr: &arr, low: 0, high: count - 1)
+    }
+    
+    private func p_quickSort(arr: inout Array<Element>, low: Int, high: Int) {
+        // 终止条件，只有一个元素
+        if low >= high {
+            return
+        }
+        
+        // 对数列进行分区
+        let p = p_partition(arr: &arr, low: low, high: high)
+        
+        p_quickSort(arr: &arr, low: low, high: p - 1)
+        p_quickSort(arr: &arr, low: p + 1, high: high)
+    }
+    
+    // 分区函数,找到pivot的index
+    private func p_partition(arr: inout Array<Element>, low: Int, high: Int) -> Int {
+        let pivot = arr[high]
+        
+        var i = low
+        
+        for j in low...high {
+            if arr[j] < pivot {
+                arr.swapAt(i, j)
+                i += 1
+            }
+        }
+        
+        arr.swapAt(i, high)
+        
+        return i
+    }
+    
+    private func p_partitionDescend(arr: inout Array<Element>, low: Int, high: Int) -> Int {
+        let pivot = arr[high]
+        
+        var i = low
+        for j in low...high {
+            if arr[j] > pivot {
+                arr.swapAt(i, j)
+                i += 1
+            }
+        }
+        
+        arr.swapAt(i, high)
+        
+        return i
+    }
+    
+    /// 编程实现O(n)时间复杂度内找到一组数据的第K大元素
+    /// 分区找到pivot的位置p，如果p+1=K，则说明，当前p的位置对应的值是所需要找的，
+    /// 如果k>p+1, 那么证明需要在A[p+1, n]里面继续查找，反之在A[0, p - 1]里面查找
+    func findKLargestElement(arr: inout Array<Element>, k: Int) -> Element? {
+        let count = arr.count
+        
+        if k > count {
+            return nil
+        }
+    
+        return p_findKLargestElement(arr: &arr, k: k, low: 0, high: count - 1)
+    }
+    
+    private func p_findKLargestElement(arr: inout Array<Element>, k: Int, low: Int, high: Int) -> Element? {
+        let p = p_partitionDescend(arr: &arr, low: low, high: high)
+        if k == p + 1 {
+            return arr[p]
+        }
+        
+        if k < p + 1 {
+            return p_findKLargestElement(arr: &arr, k: k, low: low, high: p - 1)
+        }
+        else {
+            return p_findKLargestElement(arr: &arr, k: k, low: p + 1, high: high)
+        }
+    }
+    
 }

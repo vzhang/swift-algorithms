@@ -132,6 +132,12 @@ let sort = SortImplementation<Int>()
 //sort.mergeSort(arr: &arr)
 //print(arr)
 
-sort.mergeSortInteration(arr: &arr)
-print(arr)
+//sort.mergeSortInteration(arr: &arr)
+//print(arr)
+
+//sort.quickSort(arr: &arr)
+//print(arr)
+
+let k = sort.findKLargestElement(arr: &arr, k: 1)
+print(k ?? -1)
 
