@@ -138,6 +138,11 @@ let sort = SortImplementation<Int>()
 //sort.quickSort(arr: &arr)
 //print(arr)
 
-let k = sort.findKLargestElement(arr: &arr, k: 1)
-print(k ?? -1)
+
+sort.heapSort(arr: &arr)
+print(arr)
+
+//let k = sort.findKLargestElement(arr: &arr, k: 1)
+//print(k ?? -1)
+
 

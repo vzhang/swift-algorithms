@@ -89,6 +89,40 @@ class SortImplementation<Element: Comparable>
         }
     }
     
+    /* 2.1 希尔排序
+     * wiki：減增量排序算法
+     * 希爾排序是基於插入排序的以下兩點性質而提出改進方法的：
+     * 1. 插入排序在對幾乎已經排好序的數據操作時，效率高，即可以達到線性排序的效率
+     * 2. 但插入排序一般來說是低效的，因為插入排序每次只能將數據移動一位
+     */
+    func shellSort(arr: inout Array<Element>) {
+        let count = arr.count
+        if count <= 1 {
+            return
+        }
+        
+        // 步长直接取半
+        var step = count >> 1
+        while step > 0 {
+            // 每次分组，对分组使用插入排序
+            for i in 0..<step {
+                // 插入排序
+                for j in stride(from: i + step, to: count, by: step) {
+                    let currentValue = arr[j]
+                    var pos = j
+                    while pos >= step && arr[pos - step] > currentValue {
+                        arr[pos] = arr[pos - step]
+                        pos -= step
+                    }
+                    
+                    arr[pos] = currentValue
+                }
+            }
+            
+            step >>= 1
+        }
+    }
+    
     /* 3. 选择排序
      * wiki: 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，
      * 然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕
@@ -121,37 +155,61 @@ class SortImplementation<Element: Comparable>
         }
     }
     
-    /* 3.1 希尔排序
-     * wiki：減增量排序算法
-     * 希爾排序是基於插入排序的以下兩點性質而提出改進方法的：
-     * 1. 插入排序在對幾乎已經排好序的數據操作時，效率高，即可以達到線性排序的效率
-     * 2. 但插入排序一般來說是低效的，因為插入排序每次只能將數據移動一位
+    /* 3.1 堆排序 (heap sort) ref:https://www.cnblogs.com/chengxiao/p/6129630.html
+     * wiki:是一個近似完全二叉樹的結構，並同時滿足堆積的性質：即子節點的键值或索引總是小於（或者大於）它的父節點。
+     * 算法步骤：
+     * 1. 创建一个堆 H[0……n-1]
+     * 2. 把堆首（最大值）和堆尾互换
+     * 3. 把堆的尺寸缩小 1，并调用 shift_down(0)，目的是把新的数组顶端数据调整到相应位置
+     * 4. 重复步骤 2，直到堆的尺寸为 1
+     * 大顶堆： arr[i] >= arr[2i + 1] && arr[i] >= arr[2i + 2]
+     * 小顶堆： arr[i] <= arr[2i + 1] && arr[i] <= arr[2i + 2]
      */
-    func shellSort(arr: inout Array<Element>) {
-        let count = arr.count
+    func heapSort(arr: inout Array<Element>) {
+        var count = arr.count
         if count <= 1 {
             return
         }
         
-        // 步长直接取半
-        var step = count >> 1
-        while step > 0 {
-            // 每次分组，对分组使用插入排序
-            for i in 0..<step {
-                // 插入排序
-                for j in stride(from: i + step, to: count, by: step) {
-                    let currentValue = arr[j]
-                    var pos = j
-                    while pos >= step && arr[pos - step] > currentValue {
-                        arr[pos] = arr[pos - step]
-                        pos -= step
-                    }
-                    
-                    arr[pos] = currentValue
-                }
-            }
+        buildMaxHeap(arr: &arr, count: count)
+        for i in (0..<count).reversed() {
+            // 最大数下沉
+            arr.swapAt(0, i)
+            count -= 1
             
-            step >>= 1
+            // 因为索引0的最大值下沉了，因此，需要从0的索引开始重新调整堆
+            heapify(arr: &arr, nodeIndex: 0, count: count)
+        }
+    }
+    
+    private func buildMaxHeap(arr: inout Array<Element>, count: Int) {
+        // 创建堆
+        // 最大非叶子节点，求解方式是数组长度length / 2 - 1
+        let max = arr.count / 2 - 1
+        for i in (0...max).reversed() {
+            heapify(arr: &arr, nodeIndex: i, count: count)
+        }
+    }
+    
+    /// 建堆操作
+    private func heapify(arr: inout Array<Element>, nodeIndex: Int, count: Int) {
+        var largest = nodeIndex
+        // 左节点
+        let left = 2 * nodeIndex + 1
+        // 右节点
+        let right = 2 * nodeIndex + 2
+        // 进行比较
+        if left < count && arr[left] > arr[largest] {
+            largest = left
+        }
+        if right < count && arr[right] > arr[largest] {
+            largest = right
+        }
+        if largest != nodeIndex {
+            // 进行交换
+            arr.swapAt(nodeIndex, largest)
+            // 继续迭代子节点下面数据
+            heapify(arr: &arr, nodeIndex: largest, count: count)
         }
     }
 
@@ -374,5 +432,10 @@ class SortImplementation<Element: Comparable>
             return p_findKLargestElement(arr: &arr, k: k, low: p + 1, high: high)
         }
     }
+    
+    /// 6. 桶排序
+    
+    
+    /// 7. 计数排序
     
 }
