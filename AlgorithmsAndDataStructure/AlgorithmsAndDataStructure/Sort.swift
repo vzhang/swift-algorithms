@@ -253,7 +253,6 @@ class SortImplementation<Element: Comparable>
     }
     
     private func mergeArr(arr: inout Array<Element>, tempArr: inout Array<Element>, low: Int, mid: Int, high: Int) {
-        
         var j = low
         var k = mid + 1
         
@@ -434,9 +433,62 @@ class SortImplementation<Element: Comparable>
         }
     }
     
-    /// 6. 桶排序
+    /* 6. 桶排序 （bucket sort)
+     * wiki：工作的原理是將陣列分到有限數量的桶裡。每個桶再個別排序（有可能再使用別的排序演算法或是以遞迴方式繼續使用桶排序進行排序）。
+     * 算法步骤：
+     * 1. 設置一個定量的陣列當作空桶子。
+     * 2. 尋訪序列，並且把項目一個一個放到對應的桶子去。
+     * 3. 對每個不是空的桶子進行排序。
+     * 4. 從不是空的桶子裡把項目再放回原來的序列中。
+     */
     
     
-    /// 7. 计数排序
+    /// 7. 计数排序 （counting sort）
     
+    func countingSort(arr: inout Array<Int>) {
+        let count = arr.count
+        if count <= 1 {
+            return
+        }
+        
+        // 查找数据范围
+        var max = arr[0]
+        for i in 1..<count {
+            if arr[i] > max {
+                max = arr[i]
+            }
+        }
+        
+        // 申请计数数组空间
+        var countingArr = Array(repeating: 0, count: max + 1)
+        
+        // 放置元素
+        for i in 0..<count {
+            countingArr[arr[i]] = countingArr[arr[i]] + 1
+        }
+        
+        // 一次累加
+        for i in 1...max {
+            countingArr[i] = countingArr[i] + countingArr[i - 1]
+        }
+        
+        var tempArr = Array(repeating: 0, count:count)
+        for i in (0..<count).reversed() {
+            let value = arr[i]
+            let index = countingArr[value] - 1
+            tempArr[index] = value
+            countingArr[value] = countingArr[value] - 1
+        }
+        
+        arr[0..<count] = tempArr[0..<count]
+    }
+    
+    
+    /// 8. 基数排序
+    
+    
+    /* 假设我们现在需要对 D，a，F，B，c，A，z这个字符串进行排序，要求将其中所有小写字母都
+     * 排在大写字母的前面，但小写字母内部和大写字母内部不要求有序。比如经过排序之后为 a，c，z，D，F，B，A，这个如何来实现呢？
+     * 如果字符串中存储的不仅有大小写字母，还有数字。要将小写字母的放到前面，大写字母放在最后，数字放在中间，不用排序算法，又该怎么解决呢？
+     */
 }
