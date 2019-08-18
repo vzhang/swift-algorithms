@@ -182,6 +182,7 @@ class SortImplementation<Element: Comparable>
         }
     }
     
+    // 构建大顶堆
     private func buildMaxHeap(arr: inout Array<Element>, count: Int) {
         // 创建堆
         // 最大非叶子节点，求解方式是数组长度length / 2 - 1
@@ -191,7 +192,7 @@ class SortImplementation<Element: Comparable>
         }
     }
     
-    /// 建堆操作
+    /// 调整nodexIndex非叶子节点大顶堆
     private func heapify(arr: inout Array<Element>, nodeIndex: Int, count: Int) {
         var largest = nodeIndex
         // 左节点
