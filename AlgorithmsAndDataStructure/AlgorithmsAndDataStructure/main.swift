@@ -151,8 +151,13 @@ print(arr)
 
 // 二分查找测试
 let binarySearch = BinarySearch<Int>()
-let index = binarySearch.search(arr: arr, value: 3)
-print(index)
+//let index = binarySearch.search(arr: arr, value: 3)
+//print(index)
+//
+//let indexRecursion = binarySearch.searchRecursion(arr: arr, value: 3)
+//print(indexRecursion)
 
-let indexRecursion = binarySearch.searchRecursion(arr: arr, value: 3)
-print(indexRecursion)
+let value = binarySearch.square(value: 2.0)
+print(value)
+
+

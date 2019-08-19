@@ -54,9 +54,30 @@ class BinarySearch<Element: Comparable> {
         }
         
     }
+    
+    // 如何编程实现“求一个数的平方根”？要求精确到小数点后 6 位
+    func square(value: Double) -> Double {
+        var low = 0.0
+        var high = value
+        
+        var mid = low + (high - low) / 2.0
+        while fabs(low - high) > 1e-6 {
+            if mid * mid - value < 1e-6 {
+                low = mid
+            }
+            else if mid * mid == value {
+                return mid
+            }
+            else {
+                high = mid
+            }
+            
+            mid = low + (high - low) / 2.0
+        }
+        
+        return mid
+    }
+
 }
 
 
-// 如何编程实现“求一个数的平方根”？要求精确到小数点后 6 位
-
-// 
