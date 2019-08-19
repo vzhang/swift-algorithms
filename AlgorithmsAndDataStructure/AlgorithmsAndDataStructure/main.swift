@@ -139,8 +139,8 @@ let sort = SortImplementation<Int>()
 //print(arr)
 
 
-//sort.heapSort(arr: &arr)
-//print(arr)
+sort.heapSort(arr: &arr)
+print(arr)
 
 //sort.countingSort(arr: &arr)
 //print(arr)
@@ -149,3 +149,10 @@ let sort = SortImplementation<Int>()
 //print(k ?? -1)
 
 
+// 二分查找测试
+let binarySearch = BinarySearch<Int>()
+let index = binarySearch.search(arr: arr, value: 3)
+print(index)
+
+let indexRecursion = binarySearch.searchRecursion(arr: arr, value: 3)
+print(indexRecursion)

@@ -11,6 +11,7 @@
 		CB6A42F022FD4BDB00D4F62F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A42EF22FD4BDB00D4F62F /* main.swift */; };
 		CB6A42F722FD4C0C00D4F62F /* SinglyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A42F622FD4C0C00D4F62F /* SinglyLinkedList.swift */; };
 		CB6A42F922FD4C6800D4F62F /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A42F822FD4C6800D4F62F /* LRUCache.swift */; };
+		CB89089C230A6A4D00EFD5E8 /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89089B230A6A4D00EFD5E8 /* BinarySearch.swift */; };
 		CBD326352302AE7400D6167C /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD326342302AE7400D6167C /* Queue.swift */; };
 		CBD326372302D5F500D6167C /* Recursion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD326362302D5F500D6167C /* Recursion.swift */; };
 		CBDFE10A22FFDC2D00C9E6D2 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDFE10922FFDC2D00C9E6D2 /* Stack.swift */; };
@@ -35,6 +36,7 @@
 		CB6A42EF22FD4BDB00D4F62F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		CB6A42F622FD4C0C00D4F62F /* SinglyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedList.swift; sourceTree = "<group>"; };
 		CB6A42F822FD4C6800D4F62F /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
+		CB89089B230A6A4D00EFD5E8 /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
 		CBD326342302AE7400D6167C /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		CBD326362302D5F500D6167C /* Recursion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recursion.swift; sourceTree = "<group>"; };
 		CBDFE10922FFDC2D00C9E6D2 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				CBDFE10B22FFDF3F00C9E6D2 /* Sort.swift */,
 				CBD326342302AE7400D6167C /* Queue.swift */,
 				CBD326362302D5F500D6167C /* Recursion.swift */,
+				CB89089B230A6A4D00EFD5E8 /* BinarySearch.swift */,
 			);
 			path = AlgorithmsAndDataStructure;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				CB6A42F922FD4C6800D4F62F /* LRUCache.swift in Sources */,
 				CBD326352302AE7400D6167C /* Queue.swift in Sources */,
+				CB89089C230A6A4D00EFD5E8 /* BinarySearch.swift in Sources */,
 				CBD326372302D5F500D6167C /* Recursion.swift in Sources */,
 				CBDFE10A22FFDC2D00C9E6D2 /* Stack.swift in Sources */,
 				CB6A42F722FD4C0C00D4F62F /* SinglyLinkedList.swift in Sources */,
