@@ -77,7 +77,130 @@ class BinarySearch<Element: Comparable> {
         
         return mid
     }
-
+    
+    // 查找第一个值等于给定值的元素，包含重复元素
+    func search2(arr: Array<Element>, value: Element) -> Int? {
+        let count = arr.count
+        var low = 0
+        var high = count - 1
+        
+        while low <= high {
+            let mid = low + ((high - low) >> 1)
+            if arr[mid] >= value {
+                high = mid - 1
+            }
+            else {
+                low = mid + 1
+            }
+            
+            if low < count && arr[low] == value {
+                return low
+            }
+        }
+        
+        return nil
+    }
+    
+    func search3(arr: Array<Element>, value: Element) -> Int? {
+        let count = arr.count
+        var low = 0
+        var high = count - 1
+        while low <= high {
+            let mid = low + ((high - low)) >> 1
+            if arr[mid] > value {
+                high = mid - 1
+            }
+            else if arr[mid] < value {
+                low = mid + 1
+            }
+            else {
+                if mid == 0 || arr[mid - 1] != value {
+                    return mid
+                }
+                else {
+                    high = mid - 1
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    /// 查找最后一个值等于给定值的元素
+    func search4(arr: Array<Element>, value: Element) -> Int? {
+        let count = arr.count
+        var low = 0
+        var high = count - 1
+        while low <= high {
+            let mid = low + ((high - low) >> 1)
+            if arr[mid] > value {
+                high = mid - 1
+            }
+            else if arr[mid] < value {
+                low = mid + 1
+            }
+            else {
+                if mid == count - 1 || (arr[mid + 1] != value) {
+                    return mid
+                }
+                else {
+                    low = mid + 1
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    /// 查找第一个大于等于给定值的元素
+    func search5(arr: Array<Element>, value: Element) -> Int? {
+        let count = arr.count
+        var low = 0
+        var high = count - 1
+        while low <= high {
+            let mid = low + ((high - low) >> 1)
+            if arr[mid] >= value {
+                if mid == 0 || (arr[mid - 1] < value) {
+                    return mid
+                }
+                else {
+                    high = mid - 1
+                }
+            }
+            else {
+                low = mid + 1
+            }
+        }
+        
+        return nil
+    }
+    
+    /// 查找最后一个小于等于给定值的元素
+    func search6(arr: Array<Element>, value: Element) -> Int? {
+        let count = arr.count
+        var low = 0
+        var high = count - 1
+        while low <= high {
+            let mid = low + ((high - low) >> 1)
+            if arr[mid] <= value {
+                if mid == count - 1 || (arr[mid + 1] > value) {
+                    return mid
+                }
+                else {
+                    low = mid + 1
+                }
+            }
+            else {
+                high = mid - 1
+            }
+        }
+        
+        return nil
+    }
+    
+    /// 思考题
+    /// 如果有序数组是一个循环有序数组，比如 4，5，6，1，2，3
+    /// 针对这种情况，如何实现一个求“值等于给定值”的二分查找算法呢
 }
 
 

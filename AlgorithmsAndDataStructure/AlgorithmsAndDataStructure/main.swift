@@ -157,7 +157,24 @@ let binarySearch = BinarySearch<Int>()
 //let indexRecursion = binarySearch.searchRecursion(arr: arr, value: 3)
 //print(indexRecursion)
 
-let value = binarySearch.square(value: 2.0)
-print(value)
+//let value = binarySearch.square(value: 2.0)
+//print(value)
+
+let arr1 = [1,3,4,5,6,8,8,8,8,11]
+var index = binarySearch.search2(arr: arr1, value: 8)
+print(index ?? -1)
+
+index = binarySearch.search3(arr: arr1, value: 8)
+print(index ?? -1)
+
+index = binarySearch.search4(arr: arr1, value: 8)
+print(index ?? -1)
+
+
+index = binarySearch.search5(arr: arr1, value: 6)
+print(index ?? -1)
+
+index = binarySearch.search6(arr: arr1, value: 6)
+print(index ?? -1)
 
 
