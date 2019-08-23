@@ -160,21 +160,26 @@ let binarySearch = BinarySearch<Int>()
 //let value = binarySearch.square(value: 2.0)
 //print(value)
 
-let arr1 = [1,3,4,5,6,8,8,8,8,11]
-var index = binarySearch.search2(arr: arr1, value: 8)
-print(index ?? -1)
+//let arr1 = [1,3,4,5,6,8,8,8,8,11]
+//var index = binarySearch.search2(arr: arr1, value: 8)
+//print(index ?? -1)
+//
+//index = binarySearch.search3(arr: arr1, value: 8)
+//print(index ?? -1)
+//
+//index = binarySearch.search4(arr: arr1, value: 8)
+//print(index ?? -1)
+//
+//
+//index = binarySearch.search5(arr: arr1, value: 6)
+//print(index ?? -1)
+//
+//index = binarySearch.search6(arr: arr1, value: 6)
+//print(index ?? -1)
 
-index = binarySearch.search3(arr: arr1, value: 8)
-print(index ?? -1)
 
-index = binarySearch.search4(arr: arr1, value: 8)
-print(index ?? -1)
-
-
-index = binarySearch.search5(arr: arr1, value: 6)
-print(index ?? -1)
-
-index = binarySearch.search6(arr: arr1, value: 6)
-print(index ?? -1)
+let arr2 = [4, 5, 6, 7, 8, 1, 2, 3]
+let index2 = binarySearch.search7(arr: arr2, target: 8)
+print(index2)
 
 

@@ -201,6 +201,40 @@ class BinarySearch<Element: Comparable> {
     /// 思考题
     /// 如果有序数组是一个循环有序数组，比如 4，5，6，1，2，3
     /// 针对这种情况，如何实现一个求“值等于给定值”的二分查找算法呢
+    /// 解题思路
+    /// 因为数组是有序的，因此我们首要的目标是判断mid左边区间和右边区间哪个是全有序
+    /// 如果mid大于右边区间最后一个数，表明mid左边区间是全有序，右边未知，反之，右边区间全有序
+    /// 比如: **4, 5, 6, 7**1,2,3,mid = 3, 因此mid[3] > arr[length - 1], 所左边有序，然后判断target值是否在有序区间里面，
+    /// 存在，则返回，不存在则在右边区间继续查找
+    func search7(arr: Array<Element>, target: Element) -> Int? {
+        let count = arr.count
+        var low = 0
+        var high = count - 1
+        while low <= high {
+            let mid = low + ((high - low) >> 1)
+            if arr[mid] == target {
+                return mid
+            }
+            else if (arr[mid] < arr[high]) {
+                if arr[mid] < target && target <= arr[high] {
+                    low = mid + 1
+                }
+                else {
+                    high = mid - 1
+                }
+            }
+            else {
+                if arr[low] < target && target < arr[mid] {
+                    high = mid - 1
+                }
+                else {
+                    low = mid + 1
+                }
+            }
+        }
+        
+        return nil
+    }
 }
 
 
